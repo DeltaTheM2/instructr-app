@@ -10,14 +10,19 @@ const Dashboard = () => {
     return(
     <html>
         <div className="flex">
-            <div className={`bg-secondary-content h-screen p-5 pt-8 ${
-                open ? "w-72" : "w_2"} duration-300 relative`}>
+            <div
+             className={`bg-secondary-content h-screen p-5 pt-8 ${
+                open ? "w-72" : "w_20"}
+                 duration-300 relative`}
+            >
                 <BsArrowLeftShort 
                 className={`bg-white text-primary text-3xl
                 rounded-full absolute -right-3 top-9 border
-                border-primary cursor-pointer ${!open && "rotate-180"}`}
-                onClick={() => setOpen(!open)} />
-                <div className="inline-flex">
+                border-primary cursor-pointer 
+                ${!open && "rotate-180"}`}
+                onClick={() => setOpen(!open)} 
+            />
+                <div className="flex-grow">
                     <Image
                     src="/Instructrpng.png"
                     width={60}
