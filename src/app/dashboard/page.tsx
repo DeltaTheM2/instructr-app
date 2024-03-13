@@ -2,7 +2,7 @@
 import { useState } from "react";
 import SideMenu from "../components/SideMenu/SideMenu";
 import { BsArrowLeftShort, BsChevronDown, BsSearch } from "react-icons/bs";
-import { AiFillEnvironment, AiOutlineSetting } from "react-icons/ai";
+import { AiFillEnvironment, AiFillProfile, AiOutlineSetting } from "react-icons/ai";
 import InstructrLogo from "/Instructrpng.png"
 import Image from "next/image";
 import { RiDashboardFill } from "react-icons/ri";
@@ -19,7 +19,8 @@ const Dashboard = () => {
                 {title: "Lesson 3"}
             ],
         },
-        {title: "Settings", icon: <AiOutlineSetting/>}
+        {title: "Settings", icon: <AiOutlineSetting/>},
+        {title: "Profile", icon: <AiFillProfile/>}
         
     ];
     return(
