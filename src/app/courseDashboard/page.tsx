@@ -3,7 +3,7 @@
 import Sidebar from "@/app/components/Layout/Sidebar/Sidebar";
 import { AiOutlineSetting, AiFillProfile } from 'react-icons/ai';
 
-const Dashboard = () => {
+const CourseDashboard = () => {
     const menus = [
         {
             title: 'Topic 1',
@@ -26,4 +26,4 @@ const Dashboard = () => {
     );
 }
 
-export default Dashboard;
+export default CourseDashboard;
