@@ -30,7 +30,7 @@ const Sidebar: React.FC<SidebarProps> = ({ menus }) => {
     const [subMenuOpen, setSubMenuOpen] = useState(true);
 
     return (
-        <div className={`bg-secondary-content h-screen p-5 pt-8 ${open ? 'w-72' : 'w-20'} duration-300 relative`}>
+        <div className={`bg-secondary-content h-auto p-5 pt-8 ${open ? 'w-72' : 'w-20'} duration-300 relative`}>
             <BsArrowLeftShort
                 className={`bg-white text-primary text-2xl rounded-full absolute -right-3 top-9 border border-primary cursor-pointer ${!open && 'rotate-180'}`}
                 onClick={() => setOpen(!open)}

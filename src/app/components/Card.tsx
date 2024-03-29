@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({ image, title, subTitle, description }) => {
                         </p>
                     </div>
                     <div className={"px-6 pt-4 pb-2"}>
-                  <span className={'inline-block bg-primary text-primary-content py-2 text-sm font-semibold mb-3 cursor-pointer tracking-widest rounded-full hover:bg-accent'}>
+                  <span className={'inline-block bg-primary text-primary-content py-2 pl-3 pr-3 text-sm font-semibold mb-3 cursor-pointer tracking-widest rounded-2xl hover:bg-accent'}>
                       Open
                   </span>
                     </div>
