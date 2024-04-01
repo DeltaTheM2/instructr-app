@@ -1,4 +1,5 @@
-﻿import React from "react";
+﻿'use client'
+import React, {useState} from "react";
 import Sidebar from "@/app/components/Layout/Sidebar/Sidebar";
 import {AiFillProfile, AiOutlineSetting, AiFillPlusCircle} from "react-icons/ai";
 import Card from "@/app/components/Card";
@@ -12,8 +13,13 @@ interface CardData {
 }
 
 const Home = () => {
+    const [isFormOpen, SetIsFormOpen] = useState(false);
+    const toggleForm = () => SetIsFormOpen(!isFormOpen);
     const menus = [
-        { title: 'New Lesson', icon: <AiFillPlusCircle/> },
+        { title: 'New Lesson',
+            icon: <AiFillPlusCircle/>,
+            onClick: toggleForm()
+        },
         { title: 'Settings', icon: <AiOutlineSetting/> },
         { title: 'Profile', icon: <AiFillProfile/> }
     ];

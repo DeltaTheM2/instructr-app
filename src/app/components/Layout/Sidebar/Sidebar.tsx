@@ -13,16 +13,17 @@ interface SubMenuItem {
     path: string;
 }
 
-interface Menu {
+interface SideBarItem {
     title: string;
     subMenu?: boolean;
-    path?: string;
     subMenuItems?: SubMenuItem[];
     icon?: JSX.Element;
+    path?: string;
+    action?: () => void;
 }
 
 interface SidebarProps {
-    menus: Menu[];
+    menus: SideBarItem[];
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ menus }) => {
