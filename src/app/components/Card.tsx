@@ -8,7 +8,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ image, title, subTitle, description }) => {
     return (
-        <div className="max-w-sm rounded-lg overflow-hidden shadow-lg flex flex-col justify-between min-h-[350px] bg-white"> {/* Adjust min-h as needed */}
+        <div className="max-w-sm rounded-lg overflow-hidden shadow-lg flex flex-col justify-between min-h-[350px] bg-white"> 
             <img className="w-full h-48 object-cover" src={image} alt="Image"/>
             <div className="p-6 flex flex-col justify-start flex-grow">
                 <span className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
