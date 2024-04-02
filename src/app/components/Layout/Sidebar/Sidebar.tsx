@@ -55,54 +55,34 @@ const Sidebar: React.FC<SidebarProps> = ({ menus }) => {
             </div>
             <ul className="pt-2">
                 {menus.map((menu, index) => (
-                    <React.Fragment key={index}>
-                        <li className={`text-grey-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-primary hover:text-secondary-content rounded-md mt-2`}>
-                            {/* Conditionally render a Link only if menu.path is defined */}
-                            {menu.path ? (
-                                <Link href={menu.path}>
-                                    <span className="flex items-center gap-x-4 w-full">
-                                        <span className="text-2xl">{menu.icon || <RiDashboardFill/>}</span>
-                                        <span
-                                            className={`text-base font-medium flex-1 duration-200 ${!open && 'hidden'}`}>
-                                            {menu.title}
-                                        </span>
-                                        {menu.subMenu && open &&
-                                            <BsChevronDown className={`${subMenuOpen && 'rotate-180'}`}
-                                                           onClick={(e) => {
-                                                               e.stopPropagation();
-                                                               setSubMenuOpen(!subMenuOpen)
-                                                           }}/>}
-                                    </span>
-                                </Link>
-                            ) : (
-                                <span className="flex items-center gap-x-4 w-full">
-                                    <span className="text-2xl">{menu.icon || <RiDashboardFill/>}</span>
-                                    <span className={`text-base font-medium flex-1 duration-200 ${!open && 'hidden'}`}>
-                                        {menu.title}
-                                    </span>
-                                    {menu.subMenu && open &&
-                                        <BsChevronDown className={`${subMenuOpen && 'rotate-180'}`} onClick={(e) => {
-                                            e.stopPropagation();
-                                            setSubMenuOpen(!subMenuOpen)
-                                        }}/>}
-                                </span>
-                            )}
-                        </li>
-                        {menu.subMenu && subMenuOpen && open && (
-                            <ul>
-                                {menu.subMenuItems?.map((submenuItem, submenuIndex) => (
-                                    <li key={submenuIndex}
-                                        className="text-grey-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 px-5 hover:bg-primary hover:text-secondary-content rounded-md mt-2">
-                                        {/* Always use Link for subMenuItems as they are expected to have a path */}
-                                        <Link href={submenuItem.path}>
-                                            <span>{submenuItem.title}</span>
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
+                    <li key={index} className="text-grey-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-primary hover:text-secondary-content rounded-md mt-2">
+                        {menu.path ? (
+                            <Link href={menu.path} className="flex items-center gap-x-4 w-full">
+                                {menu.icon && <span className="text-2xl">{menu.icon}</span>}
+                                <span className={`text-base font-medium flex-1 duration-200 ${!open && 'hidden'}`}>
+                    {menu.title}
+                </span>
+                            </Link>
+                        ) : (
+                            <button onClick={menu.action} className="flex items-center gap-x-4 w-full">
+                                {menu.icon && <span className="text-2xl">{menu.icon}</span>}
+                                <span className={`text-base font-medium flex-1 duration-200 ${!open && 'hidden'}`}>
+                    {menu.title}
+                </span>
+                            </button>
                         )}
-                    </React.Fragment>
+                        {menu.subMenu && open &&
+                            <BsChevronDown
+                                className={`text-xl cursor-pointer ${subMenuOpen && 'rotate-180'}`}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setSubMenuOpen(!subMenuOpen);
+                                }}
+                            />
+                        }
+                    </li>
                 ))}
+
             </ul>
         </div>
     );

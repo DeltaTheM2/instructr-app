@@ -4,6 +4,9 @@ import Sidebar from "@/app/components/Layout/Sidebar/Sidebar";
 import {AiFillProfile, AiOutlineSetting, AiFillPlusCircle} from "react-icons/ai";
 import Card from "@/app/components/Card";
 import card from "@/app/components/Card";
+import NewLessonForm from "@/app/components/newLessonForm/newLessonForm";
+import {Simulate} from "react-dom/test-utils";
+import toggle = Simulate.toggle;
 interface CardData {
     id: number;
     image: string;
@@ -14,11 +17,14 @@ interface CardData {
 
 const Home = () => {
     const [isFormOpen, SetIsFormOpen] = useState(false);
-    const toggleForm = () => SetIsFormOpen(!isFormOpen);
+    const toggleForm = () => {
+        console.log('toggling form');
+        SetIsFormOpen(!isFormOpen);
+    }
     const menus = [
         { title: 'New Lesson',
             icon: <AiFillPlusCircle/>,
-            onClick: toggleForm()
+            action: toggleForm,
         },
         { title: 'Settings', icon: <AiOutlineSetting/> },
         { title: 'Profile', icon: <AiFillProfile/> }
@@ -125,6 +131,7 @@ const Home = () => {
                     )}
                 </div>
             </div>
+            <NewLessonForm isOpen={isFormOpen} onClose={() => SetIsFormOpen(false)} />
         </>
     );
 };
