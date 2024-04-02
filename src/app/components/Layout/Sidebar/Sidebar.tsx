@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { BsArrowLeftShort, BsChevronDown, BsSearch } from 'react-icons/bs';
 import { RiDashboardFill } from 'react-icons/ri';
 import Link from 'next/link';
+import {Input} from "@nextui-org/react";
 
 
 interface SubMenuItem {
@@ -48,14 +49,14 @@ const Sidebar: React.FC<SidebarProps> = ({ menus }) => {
                 <h1 className={`text-white origin-left font-medium text-2xl duration-300 ${!open && 'scale-0'}`}>Lesson
                     Plan</h1>
             </div>
-            <div className={`flex items-center rounded-md bg-green-900 mt-6 ${!open ? 'px-4' : 'px-3'} py-2`}>
+            <div className={`flex items-center rounded-md -900 mt-6 ${!open ? 'px-4' : 'px-3'} py-2`}>
                 <BsSearch className={`text-white text-lg block float-left cursor-pointer ${open && 'mr-2'}`}/>
-                <input type="search" placeholder="Search"
+                <Input type="search" placeholder="Search" color={'default'}
                        className={`text-base bg-transparent w-full text focus:outline-none ${!open && 'hidden'}`}/>
             </div>
             <ul className="pt-2">
                 {menus.map((menu, index) => (
-                    <li key={index} className="text-grey-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-primary hover:text-secondary-content rounded-md mt-2">
+                    <li key={index} className="text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-primary hover:text-secondary-content rounded-md mt-2">
                         {menu.path ? (
                             <Link href={menu.path} className="flex items-center gap-x-4 w-full">
                                 {menu.icon && <span className="text-2xl">{menu.icon}</span>}
