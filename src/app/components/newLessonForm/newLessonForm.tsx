@@ -4,25 +4,23 @@ import {Textarea} from "@nextui-org/input";
 import WeekdaySelection from "@/app/components/weekdaySelection/weekdaySelection";
 
 
-const NewLessonForm = ({ isOpen, onOpen, onOpenChange }: { isOpen: any; onOpen: any, onOpenChange: any}) => {
+const NewLessonForm = ({isOpen, onClose}: {isOpen:boolean; onClose: () => void}) => {
+    
     return (
        <>
            <Modal
                isOpen={isOpen}
-               onOpenChange={onOpenChange}
+               onClose={onClose}
                placement={"bottom"}
                backdrop={"blur"}
                size={'5xl'}
            className={'absolute inset-y-0 bottom-0'}>
                 <ModalContent>
-                    {(onClose) =>(
-                        <>
                             <ModalHeader className={'flex flex-col gap-1'}>Set up a lesson plan</ModalHeader>
                             <ModalBody>
                                 <Input
                                     autoFocus
                                     label='Course Name'
-                                    placeholder={'Enter the name'}
                                     variant={'bordered'}
                                 />
                                 <Textarea
@@ -30,10 +28,23 @@ const NewLessonForm = ({ isOpen, onOpen, onOpenChange }: { isOpen: any; onOpen: 
                                     size={"lg"}
                                     variant={"bordered"}
                                 />
-                                <WeekdaySelection></WeekdaySelection>
+                                <div
+                                    className="flex items-center gap-4"> {/* Adjusted class here for Flexbox row layout and added gap for spacing */}
+                                    <WeekdaySelection/>
+                                    <Input
+                                        label='Course Length'
+                                        variant={'bordered'}
+                                    />
+                                </div>
                             </ModalBody>
-                        </>
-                    )}
+                            <ModalFooter>
+                                <Button color="danger" variant="flat" onPress={onClose}>
+                                    Close
+                                </Button>
+                                <Button color="primary" onPress={onClose}>
+                                    Generate
+                                </Button>
+                            </ModalFooter>
                 </ModalContent>
            </Modal>
        </>

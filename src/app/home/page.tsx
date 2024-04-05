@@ -17,12 +17,12 @@ interface CardData {
 }
 
 const Home = () => {
-    
-    const {isOpen, onOpen, onOpenChange} = useDisclosure(); 
+
+    const [isFormOpen, setIsFormOpen] = useState(false);
     const menus = [
         { title: 'New Lesson',
             icon: <AiFillPlusCircle/>,
-            action: onOpen,
+            action: () => setIsFormOpen(true),
         },
         { title: 'Settings', icon: <AiOutlineSetting/> },
         { title: 'Profile', icon: <AiFillProfile/> }
@@ -129,7 +129,7 @@ const Home = () => {
                     )}
                 </div>
             </div>
-            <NewLessonForm isOpen onOpen onOpenChange />
+            <NewLessonForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
         </>
     );
 };
