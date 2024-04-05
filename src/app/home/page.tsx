@@ -7,6 +7,7 @@ import card from "@/app/components/Card";
 import NewLessonForm from "@/app/components/newLessonForm/newLessonForm";
 import {Simulate} from "react-dom/test-utils";
 import toggle = Simulate.toggle;
+import {useDisclosure} from "@nextui-org/react";
 interface CardData {
     id: number;
     image: string;
@@ -16,15 +17,12 @@ interface CardData {
 }
 
 const Home = () => {
-    const [isFormOpen, SetIsFormOpen] = useState(false);
-    const toggleForm = () => {
-        console.log('toggling form');
-        SetIsFormOpen(!isFormOpen);
-    }
+    
+    const {isOpen, onOpen, onOpenChange} = useDisclosure(); 
     const menus = [
         { title: 'New Lesson',
             icon: <AiFillPlusCircle/>,
-            action: toggleForm,
+            action: onOpen,
         },
         { title: 'Settings', icon: <AiOutlineSetting/> },
         { title: 'Profile', icon: <AiFillProfile/> }
@@ -131,7 +129,7 @@ const Home = () => {
                     )}
                 </div>
             </div>
-            <NewLessonForm isOpen={isFormOpen} onClose={() => SetIsFormOpen(false)} />
+            <NewLessonForm isOpen onOpen onOpenChange />
         </>
     );
 };

@@ -21,7 +21,7 @@ const CourseDashboard = () => {
     return (
         <div className="flex">
             <Sidebar menus={menus}/>
-
+            
         </div>
     );
 }
