@@ -29,7 +29,7 @@ const NewLessonForm = ({isOpen, onClose}: {isOpen:boolean; onClose: () => void})
                                     variant={"bordered"}
                                 />
                                 <div
-                                    className="flex items-center gap-4"> {/* Adjusted class here for Flexbox row layout and added gap for spacing */}
+                                    className="flex items-center gap-4">
                                     <WeekdaySelection/>
                                     <Input
                                         label='Course Length'
