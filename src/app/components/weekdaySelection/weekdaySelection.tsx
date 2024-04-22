@@ -11,6 +11,10 @@ const weekdaySelection: React.FC = () => {
         {label:'Saturday', value:'Saturday'},
         {label:'Sunday', value:'sunday'}
     ];
+    const [value, setValue] = React.useState("");
+    const handleSelectionChange = (e) => {
+        setValue(e.target.value);
+    };
     return (
         <Select
             label="Class Days"

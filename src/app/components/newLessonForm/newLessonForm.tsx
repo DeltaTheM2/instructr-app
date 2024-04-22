@@ -2,10 +2,13 @@
 import {Input, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure, Checkbox, Button, Link} from "@nextui-org/react";
 import {Textarea} from "@nextui-org/input";
 import WeekdaySelection from "@/app/components/weekdaySelection/weekdaySelection";
+import CreateLessonPlan from "@/app/components/OpenAI/CreateLessonPlan";
 
 
 const NewLessonForm = ({isOpen, onClose}: {isOpen:boolean; onClose: () => void}) => {
-    
+    const [name, setName] = React.useState("");
+    const [description, setDescription] = React.useState("");
+    const[duration, setDuration] = React.useState("");
     return (
        <>
            <Modal
@@ -38,10 +41,7 @@ const NewLessonForm = ({isOpen, onClose}: {isOpen:boolean; onClose: () => void})
                                 </div>
                             </ModalBody>
                             <ModalFooter>
-                                <Button color="danger" variant="flat" onPress={onClose}>
-                                    Close
-                                </Button>
-                                <Button color="primary" onPress={onClose}>
+                                <Button color="primary" onPress={CreateLessonPlan}>
                                     Generate
                                 </Button>
                             </ModalFooter>
